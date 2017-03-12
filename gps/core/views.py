@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 
 def home_page(request):
-    return HttpResponse('<html><title>GPS</title></html>')
+    return render(request, 'home.html')
