@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth.views import login, logout
 
-from gps.core.views import home_page
+from gps.core.views import dashboard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', home_page, name='home'),
+    url(r'^$', login, {'template_name': 'login.html'}, name='login'),
+    url(r'^sair/', logout, {'next_page': 'login'}, name='logout'),
+    url(r'^dashboard/', dashboard, name='dashboard')
 ]
